@@ -1,0 +1,10 @@
+node_modules
+.pnpm-store
+.eslintcache
+repo.txt
+.env
+.DS_Store
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/

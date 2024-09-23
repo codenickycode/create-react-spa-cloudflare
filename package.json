@@ -1,0 +1,43 @@
+{
+  "name": "create-react-spa-cloudflare",
+  "type": "module",
+  "version": "0.0.0",
+  "description": "Starter package for react spa with cloudflare pages, workers, and kv",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "client": "pnpm --filter client",
+    "server": "pnpm --filter server",
+    "build": "pnpm -r build",
+    "ci": "pnpm lint && pnpm typecheck && pnpm test",
+    "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules && pnpm i",
+    "e2e": "pnpm exec playwright test",
+    "e2e:ui": "pnpm exec playwright test --ui",
+    "format": "pnpm exec prettier --write **/*.{js,ts,tsx,json,css,md}",
+    "lint": "pnpm -r lint",
+    "lint:fix": "pnpm exec eslint --fix",
+    "test": "pnpm -r test",
+    "test:watch": "pnpm -r test:watch",
+    "typecheck": "pnpm -r typecheck"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "hono": "^4.5.8"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "@types/eslint": "^9.6.0",
+    "@types/node": "^20.14.12",
+    "@typescript-eslint/eslint-plugin": "^7.14.1",
+    "@typescript-eslint/parser": "^7.14.1",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.3",
+    "wrangler": "^3.73.0"
+  },
+  "engines": {
+    "node": ">=20.10.0",
+    "pnpm": ">=9"
+  }
+}

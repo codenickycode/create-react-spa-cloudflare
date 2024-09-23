@@ -1,0 +1,24 @@
+{
+  "name": "@todo/rename",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "deploy:stage": "pnpm wrangler deploy --minify src/index.ts --env stage --var GITHUB_REF_NAME:$GITHUB_REF_NAME --var GITHUB_SHA:$GITHUB_SHA",
+    "deploy:prod": "pnpm wrangler deploy --minify src/index.ts --env prod --var GITHUB_REF_NAME:$GITHUB_REF_NAME --var GITHUB_SHA:$GITHUB_SHA",
+    "dev": "pnpm wrangler dev --live-reload src/index.ts --env dev",
+    "dev:test": "pnpm wrangler dev --live-reload src/index.ts --env test --port 8788",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "pnpm exec tsc --build"
+  },
+  "dependencies": {
+    "@hono/zod-validator": "^0.2.2",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-pool-workers": "^0.4.16",
+    "@cloudflare/workers-types": "^4.20240718.0",
+    "vitest": "1.5.0"
+  }
+}

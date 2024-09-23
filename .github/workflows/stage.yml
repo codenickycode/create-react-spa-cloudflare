@@ -1,0 +1,91 @@
+name: stage
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Deploy target (client, server, or both)'
+        required: true
+        default: 'both'
+        type: choice
+        options:
+          - client
+          - server
+          - both
+  # note: push is required to register this workflow
+  push:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  deploy-client:
+    name: 🚀 Deploy client to stage
+    if: ${{ github.event_name == 'workflow_dispatch' &&  (github.event.inputs.target == 'client' || github.event.inputs.target == 'both') }}
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      GITHUB_REF_NAME: ${{ github.ref_name }}
+      GITHUB_SHA: ${{ github.sha }}
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.10.0
+
+      - name: 📥 Install deps
+        run: pnpm install
+
+      - name: ⚙️ Build
+        run: pnpm build
+
+      - name: 🚀 Deploy client to stage
+        run: pnpm run client deploy:stage
+
+  deploy-server:
+    name: 🚀 Deploy server to stage
+    if: ${{ github.event_name == 'workflow_dispatch' &&  (github.event.inputs.target == 'server' || github.event.inputs.target == 'both') }}
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      GITHUB_REF_NAME: ${{ github.ref_name }}
+      GITHUB_SHA: ${{ github.sha }}
+    steps:
+      - name: ⬇️ Checkout repo
+        uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v3
+        name: Install pnpm
+        with:
+          version: 9
+          run_install: false
+
+      - name: ⎔ Setup node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.10.0
+
+      - name: 📥 Install deps
+        run: pnpm install
+
+      - name: ⚙️ Build
+        run: pnpm build
+
+      - name: 🚀 Deploy server to stage
+        run: pnpm run server deploy:stage

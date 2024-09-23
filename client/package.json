@@ -1,0 +1,40 @@
+{
+  "name": "@todo/rename",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -b && vite build",
+    "build:test": "tsc -b && E2E=true vite build",
+    "deploy:stage": "pnpm wrangler pages deploy ./dist --project-name todo:rename --branch \"stage\" --commit-hash \"$GITHUB_SHA\" --commit-message \"stage deployment\"",
+    "deploy:prod": "pnpm wrangler pages deploy ./dist --project-name todo:rename",
+    "dev": "vite --host 0.0.0.0",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "preview": "vite preview",
+    "typecheck": "pnpm exec tsc --build"
+  },
+  "dependencies": {
+    "@sentry/react": "^8.25.0",
+    "@sentry/vite-plugin": "^2.22.0",
+    "@tanstack/react-query": "^5.50.1",
+    "classnames": "^2.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react-swc": "^3.7.0",
+    "autoprefixer": "^10.4.19",
+    "eslint-plugin-react-hooks": "^4.6.2",
+    "eslint-plugin-react-refresh": "^0.4.7",
+    "jsdom": "^24.1.0",
+    "postcss": "^8.4.39",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.3.2",
+    "vitest": "^2.0.2"
+  }
+}
