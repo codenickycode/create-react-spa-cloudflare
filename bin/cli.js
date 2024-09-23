@@ -13,7 +13,9 @@ const runCommand = (command) => {
     execSync(`${command}`, { stdio: 'inherit' });
   } catch (e) {
     console.error(`Failed to execute ${command}`, e);
+    return false;
   }
+  return true;
 };
 
 const repoName = process.argv[2];
@@ -23,12 +25,17 @@ if (!repoName) {
   process.exit(1);
 }
 
-const gitCheckoutCommand = `git clone --depth 1 https://github.com/codenickycode/create-react-spa-cloudflare.git ${repoName}`;
+const gitCloneCommand = `git clone --depth 1 https://github.com/codenickycode/create-react-spa-cloudflare.git ${repoName}`;
 
-console.log(`Creating dir: ${repoName} and cloning starter project`);
+console.log(`Creating dir ${repoName} and cloning starter project`);
 
-const checkedOut = runCommand(gitCheckoutCommand);
-if (!checkedOut) {
+const cloned = runCommand(gitCloneCommand);
+if (!cloned) {
+  process.exit(1);
+}
+
+const installed = `cd ${repoName} && pnpm i`;
+if (!installed) {
   process.exit(1);
 }
 
@@ -40,4 +47,4 @@ if (!cleanup) {
 }
 
 console.log(`Successfully installed! To start:`);
-console.log(`cd ${repoName} && pnpm i && pnpm run dev`);
+console.log(`cd ${repoName} && pnpm run dev`);
