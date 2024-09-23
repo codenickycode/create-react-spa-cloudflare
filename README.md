@@ -6,6 +6,10 @@
 
 3. install
 
+```
+pnpm create react-spa-cloudflare@latest
+```
+
 4. complete all todos
 
 5. test client
