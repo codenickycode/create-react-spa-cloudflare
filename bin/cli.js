@@ -10,7 +10,7 @@ import { execSync } from 'child_process';
 
 const runCommand = (command) => {
   try {
-    execSync(`${command}`, { stdio: 'inherit' });
+    execSync(command, { stdio: 'inherit' });
   } catch (e) {
     console.error(`Failed to execute ${command}`, e);
     return false;
@@ -25,23 +25,25 @@ if (!repoName) {
   process.exit(1);
 }
 
-const gitCloneCommand = `git clone --depth 1 https://github.com/codenickycode/create-react-spa-cloudflare.git ${repoName}`;
-
 console.log(`Creating dir ${repoName} and cloning starter project`);
 
-const cloned = runCommand(gitCloneCommand);
+const cloned = runCommand(
+  `git clone --depth 1 https://github.com/codenickycode/create-react-spa-cloudflare.git ${repoName}`,
+);
 if (!cloned) {
   process.exit(1);
 }
 
-const installed = `cd ${repoName} && pnpm i`;
+const installed = runCommand(`cd ${repoName} && pnpm i`);
 if (!installed) {
   process.exit(1);
 }
 
 console.log('Removing starter command files...');
 
-const cleanup = `rm -rf ${repoName}/bin && mv ${repoName}/README.project.md ${repoName}/README.md`;
+const cleanup = runCommand(
+  `rm -rf ${repoName}/bin && mv ${repoName}/README.project.md ${repoName}/README.md`,
+);
 if (!cleanup) {
   console.warn('Failed to cleanup starter command files');
 }
