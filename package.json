@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "description": "Starter package for react spa with cloudflare pages, workers, and kv",
+  "bin": "./bin/cli.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "client": "pnpm --filter client",
@@ -10,6 +11,7 @@
     "build": "pnpm -r build",
     "ci": "pnpm lint && pnpm typecheck && pnpm test",
     "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules && pnpm i",
+    "dev": "pnpm -r dev",
     "e2e": "pnpm exec playwright test",
     "e2e:ui": "pnpm exec playwright test --ui",
     "format": "pnpm exec prettier --write **/*.{js,ts,tsx,json,css,md}",
@@ -19,7 +21,11 @@
     "test:watch": "pnpm -r test:watch",
     "typecheck": "pnpm -r typecheck"
   },
-  "keywords": [],
+  "keywords": [
+    "react",
+    "spa",
+    "cloudflare"
+  ],
   "author": "",
   "license": "MIT",
   "dependencies": {
