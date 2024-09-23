@@ -1,11 +1,9 @@
 {
   "name": "create-react-spa-cloudflare",
   "type": "module",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Starter package for react spa with cloudflare pages, workers, and kv",
-  "bin": {
-    "create-react-spa-cloudflare": "./bin/cli.js"
-  },
+  "bin": "./bin/cli.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
     "client": "pnpm --filter client",
