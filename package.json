@@ -1,7 +1,7 @@
 {
   "name": "create-react-spa-cloudflare",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Starter package for react spa with cloudflare pages, workers, and kv",
   "bin": "./bin/cli.js",
   "scripts": {
@@ -26,8 +26,12 @@
     "spa",
     "cloudflare"
   ],
-  "author": "",
+  "author": "@codenickycode",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/codenickycode/create-react-spa-cloudflare.git"
+  },
   "dependencies": {
     "hono": "^4.5.8"
   },
