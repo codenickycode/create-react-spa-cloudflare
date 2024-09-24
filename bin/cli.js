@@ -4,9 +4,11 @@
 
 // modified from:
 // https://www.youtube.com/watch?v=UxdSoefSxrA&t=1s&ab_channel=bonsaiilabs
-// thx bonsaiilabs!
+// thx bonsaiilabs and claude.ai!
 
 import { execSync } from 'child_process';
+import { updateJson } from './update-json.js';
+import process from 'process';
 
 const runCommand = (command) => {
   console.log(`Executing command: ${command}`);
@@ -24,16 +26,13 @@ const runCommand = (command) => {
 const repoName = process.argv[2];
 if (!repoName) {
   console.error('');
-  console.error('');
   console.error('You must supply a name for your repo');
-  console.error('eg: pnpm create create-react-spa-cloudflare my-repo-name');
+  console.error('eg: pnpm create react-spa-cloudflare my-repo-name');
   process.exit(1);
 }
 
 console.log('');
-console.log('');
 console.log(`⚙️ Creating dir ${repoName} and cloning starter project...`);
-console.log('');
 console.log('');
 
 const cloned = runCommand(
@@ -43,31 +42,81 @@ if (!cloned) {
   process.exit(1);
 }
 
+// Change directory to the new project folder
+process.chdir(repoName);
+
 console.log('');
-console.log(`✅ Starter project cloned successfully!`);
+console.log(`✔️ Starter project cloned successfully!`);
 console.log('');
 console.log(`⚙️ Installing dependencies with pnpm...`);
 console.log('');
 
-const installed = runCommand(`cd ${repoName} && pnpm i`);
+const installed = runCommand('pnpm i');
 if (!installed) {
-  process.exit(1);
+  console.warn('⚠️ Failed to install dependencies!');
 }
 
 console.log('');
-console.log(`✅ Dependencies installed successfully!`);
+console.log(`✔️ Dependencies installed successfully!`);
+console.log('');
+console.log('⚙️ Renaming packages...');
+console.log('');
+
+const initPackageJsonProps = {
+  version: '0.0.0',
+  description: '',
+  bin: '[[DELETE]]',
+  keywords: [],
+  license: '',
+  author: '',
+  repository: '[[DELETE]]',
+};
+
+const updatedRootPackage = updateJson('package.json', {
+  ...initPackageJsonProps,
+  name: repoName,
+});
+const updatedClientPackage = updateJson('client/package.json', {
+  ...initPackageJsonProps,
+  name: `@${repoName}/client`,
+});
+const updatedServerPackage = updateJson('server/package.json', {
+  ...initPackageJsonProps,
+  name: `@${repoName}/server`,
+});
+console.log('');
+if (!(updatedRootPackage && updatedClientPackage && updatedServerPackage)) {
+  console.warn('⚠️ Failed to update package manifests!');
+} else {
+  console.log(`✔️ Packages updated successfully!`);
+}
+
 console.log('');
 console.log('⚙️ Removing starter command files...');
 console.log('');
 
 const cleanup = runCommand(
-  `rm -rf ${repoName}/bin && mv ${repoName}/README.project.md ${repoName}/README.md`,
+  `rm -rf bin .git && \
+   mv README.project.md README.md && \
+   mv .env-template .env && \
+   mv client/.env-template client/.env`,
 );
 if (!cleanup) {
-  console.warn('⚠️ WARN: Failed to cleanup starter command files');
+  console.warn('⚠️ Failed to cleanup starter command files!');
 }
 
 console.log('');
-console.log(`✅ Project successfully initialized! To start:`);
-console.log(`cd ${repoName} && pnpm run dev`);
+console.log(`✔️ Starter command files cleaned up successfully!`);
 console.log('');
+console.log('⚙️ Initializing git repository...');
+console.log('');
+
+const gitInit = runCommand('git init');
+if (!gitInit) {
+  console.warn('⚠️ Failed to initialize git repository!');
+}
+
+console.log('');
+console.log(
+  `✅ Project initialized! To start, run: cd ${repoName} && pnpm run dev`,
+);
