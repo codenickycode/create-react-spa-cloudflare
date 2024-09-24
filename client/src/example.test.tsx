@@ -30,7 +30,7 @@ describe('Example Component', () => {
   it('renders the component with correct initial state', () => {
     renderComponent();
 
-    expect(screen.getByText('Hello from React SPA!')).toBeDefined();
+    expect(screen.getByText('Hello from React!')).toBeDefined();
     expect(screen.getByText('Server connection: ❌')).toBeDefined();
     expect(screen.getByText('spinner example')).toBeDefined();
     expect(screen.getByText('show modal')).toBeDefined();

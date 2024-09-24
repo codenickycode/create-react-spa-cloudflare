@@ -1,26 +1,63 @@
-# Getting Started
+# Create React SPA Cloudflare
 
-1. install pnpm (>=9)
+A starter project for building a pnpm monorepo with a client-side React SPA and a server-side Cloudflare Worker with KV storage. This project includes comprehensive testing, linting, and CI/CD setup, along with Sentry integration for error tracking.
 
-2. install node (>=20.10.0)
+## Features
 
-3. install
+- [React](https://react.dev) SPA for the client-side application
+- [Cloudflare](https://cloudflare.com) Worker with KV storage for the server
+- [Prettier](https://prettier.io/) for code formatting
+- [ESLint](https://eslint.org/) for linting
+- [Vitest](https://vitest.dev/) for unit testing
+- [Playwright](https://playwright.dev/) for end-to-end testing
+- [TypeScript](https://www.typescriptlang.org/) for type checking
+- [GitHub](https://github.com) workflows for CI and staging deployment
+- [Sentry](https://sentry.io/) integration for client-side error tracking
+- [pnpm](https://pnpm.io) for efficient package management
 
-# Debug
+## Installation
 
+### Pre-requisites
+
+1. [git](https://git-scm.com/downloads)
+2. [pnpm](https://pnpm.io/installation) v9 and above
+3. [node](https://nodejs.org/en/download/package-manager/current) v20.17.0 and above
+
+### Install
+
+1. Ensure you're using the correct version of Node:
+   ```sh
+   nvm use 20.17.0
+   ```
+2. Run the installation script:
+   ```sh
+   pnpm create react-spa-cloudflare@latest my-app
+   ```
+3. Check the console output for any warnings. The command will succeed unless the initial download fails.
+
+## Getting Started
+
+1. Navigate to your project directory and start the development server:
+
+```sh
+cd my-app
+pnpm run dev
 ```
- ENOENT  Command failed with ENOENT: create-react-spa-cloudflare
-spawn create-react-spa-cloudflare ENOENT
 
-pnpm: Command failed with ENOENT: create-react-spa-cloudflare
-spawn create-react-spa-cloudflare ENOENT
-    at ChildProcess._handle.onexit (node:internal/child_process:286:19)
-    at onErrorNT (node:internal/child_process:484:16)
-    at process.processTicksAndRejections (node:internal/process/task_queues:82:21)
-```
+2. Navigate to the app at http://localhost:5173
+3. You should see some hello text, components, and verified server connection
+4. Follow your project's README for further setup instructions
 
-You forgot to add a version:
+## Debug
 
-```
+### ENOENT Error
+
+If you encounter an ENOENT error when running the create command, make sure to include a version:
+
+```sh
+# ❌ Wrong! It's missing a version
+pnpm create react-spa-cloudflare
+
+# ✅ Correct!
 pnpm create react-spa-cloudflare@latest
 ```

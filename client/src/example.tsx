@@ -26,7 +26,7 @@ export const Example = () => {
   });
   return (
     <div className="flex flex-col gap-4">
-      <h1>Hello from React SPA!</h1>
+      <h1>Hello from React!</h1>
       <div>
         <p>Server connection: {serverOkQuery.data ? '✅' : '❌'}</p>
       </div>
