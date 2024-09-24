@@ -60,7 +60,7 @@ export const Modal = ({
     >
       <div
         className={classNames(
-          'rounded-lg p-6 m-4 bg-gradient-to-b from-slate-700 to-sky-950',
+          'rounded-lg p-6 m-4',
           isOpen ? 'animate-scaleIn' : 'animate-scaleOut',
           className ?? '',
         )}
