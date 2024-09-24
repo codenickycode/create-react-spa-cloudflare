@@ -10,8 +10,8 @@ export default defineConfig(({ mode }) => {
     plugins: [
       react() as PluginOption[],
       sentryVitePlugin({
-        org: 'codenickycode',
-        project: 'todo:rename-client',
+        org: 'todo:replace',
+        project: 'todo:replace',
         authToken: env.SENTRY_AUTH_TOKEN,
       }),
     ],
