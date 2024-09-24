@@ -6,24 +6,17 @@
 // https://www.youtube.com/watch?v=UxdSoefSxrA&t=1s&ab_channel=bonsaiilabs
 // thx bonsaiilabs!
 
-import { spawnSync } from 'child_process';
+import { execSync } from 'child_process';
 
 const runCommand = (command) => {
   console.log(`Executing command: ${command}`);
-  const [cmd, ...args] = command.split(' ');
-  const result = spawnSync(cmd, args, {
-    stdio: 'inherit',
-    shell: true,
-  });
-
-  if (result.status === 0) {
-    console.log(`Command executed successfully: ${command}`);
+  try {
+    execSync(command, {
+      stdio: 'inherit',
+    });
     return true;
-  } else {
-    console.error(`Command failed with exit code ${result.status}: ${command}`);
-    if (result.error) {
-      console.error('Error details:', result.error);
-    }
+  } catch (error) {
+    console.error(`Command failed with error: ${error}`);
     return false;
   }
 };
@@ -51,10 +44,9 @@ if (!cloned) {
 }
 
 console.log('');
-console.log('');
 console.log(`✅ Starter project cloned successfully!`);
-console.log(`⚙️ Installing dependencies with pnpm...`);
 console.log('');
+console.log(`⚙️ Installing dependencies with pnpm...`);
 console.log('');
 
 const installed = runCommand(`cd ${repoName} && pnpm i`);
@@ -63,10 +55,9 @@ if (!installed) {
 }
 
 console.log('');
-console.log('');
 console.log(`✅ Dependencies installed successfully!`);
-console.log('⚙️ Removing starter command files...');
 console.log('');
+console.log('⚙️ Removing starter command files...');
 console.log('');
 
 const cleanup = runCommand(
@@ -77,6 +68,6 @@ if (!cleanup) {
 }
 
 console.log('');
-console.log('');
 console.log(`✅ Project successfully initialized! To start:`);
 console.log(`cd ${repoName} && pnpm run dev`);
+console.log('');
