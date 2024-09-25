@@ -9,7 +9,6 @@
     "client": "pnpm --filter client",
     "server": "pnpm --filter server",
     "build": "pnpm -r build",
-    "ci": "pnpm lint && pnpm typecheck && pnpm test",
     "clean": "rm -rf node_modules && pnpm -r exec rm -rf node_modules && pnpm i",
     "dev": "pnpm -r dev",
     "e2e": "pnpm exec playwright test",
