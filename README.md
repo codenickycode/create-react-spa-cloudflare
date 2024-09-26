@@ -5,15 +5,18 @@ A starter project for building a pnpm monorepo with a client-side React SPA and 
 ## Features
 
 - [React](https://react.dev) SPA for the client-side application
-- [Cloudflare](https://cloudflare.com) Worker with KV storage for the server
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Tanstack Query](https://tanstack.com/query/latest) for client http request state management
+- [Hono](https://hono.dev/) server-side api framework
 - [Prettier](https://prettier.io/) for code formatting
 - [ESLint](https://eslint.org/) for linting
 - [Vitest](https://vitest.dev/) for unit testing
 - [Playwright](https://playwright.dev/) for end-to-end testing
 - [TypeScript](https://www.typescriptlang.org/) for type checking
+- [Cloudflare](https://cloudflare.com) Pages for hosting the client, Worker with KV storage for hosting the server
 - [GitHub](https://github.com) workflows for CI and staging deployment
 - [Sentry](https://sentry.io/) integration for client-side error tracking
-- [pnpm](https://pnpm.io) for efficient package management
+- [pnpm](https://pnpm.io) for performant monorepo package management
 
 ## Installation
 

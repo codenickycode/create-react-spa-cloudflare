@@ -5,15 +5,18 @@ This project is a pnpm monorepo with a client-side React SPA and a server-side C
 ## Features
 
 - [React](https://react.dev) SPA for the client-side application
-- [Cloudflare](https://cloudflare.com) Worker with KV storage for the server
+- [Tailwind CSS](https://tailwindcss.com/) for styling
+- [Tanstack Query](https://tanstack.com/query/latest) for client http request state management
+- [Hono](https://hono.dev/) server-side api framework
 - [Prettier](https://prettier.io/) for code formatting
 - [ESLint](https://eslint.org/) for linting
 - [Vitest](https://vitest.dev/) for unit testing
 - [Playwright](https://playwright.dev/) for end-to-end testing
 - [TypeScript](https://www.typescriptlang.org/) for type checking
+- [Cloudflare](https://cloudflare.com) Pages for hosting the client, Worker with KV storage for hosting the server
 - [GitHub](https://github.com) workflows for CI and staging deployment
 - [Sentry](https://sentry.io/) integration for client-side error tracking
-- [pnpm](https://pnpm.io) for efficient package management
+- [pnpm](https://pnpm.io) for performant monorepo package management
 
 ## Getting Started
 
@@ -36,17 +39,11 @@ This project is a pnpm monorepo with a client-side React SPA and a server-side C
    pnpm i
    ```
 
-## Deployment Configuration
+### Deployment Configuration
 
-### Cloudflare
+1. Follow instructions in [README.cloudflare](./README.cloudflare/README.cloudflare.md)
 
-Follow instructions in [README.cloudflare](./README.cloudflare/README.cloudflare.md)
-
-### Sentry
-
-1. Add your `SENTRY_AUTH_TOKEN` in [client/.env](./client/.env)
-2. Add your `SENTRY_DSN` in [client/src/services/monitor.tsx](./client/src/services/monitor.tsx)
-3. Add your `org` and `project` values to Sentry Vite plugin in [client/vite.config.ts](./client/vite.config.ts)
+2. Follow instructions in [README.sentry](./README.sentry/README.sentry.md)
 
 ## Scripts
 
