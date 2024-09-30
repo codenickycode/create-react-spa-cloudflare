@@ -45,6 +45,16 @@ This project is a pnpm monorepo with a client-side React SPA and a server-side C
 
 2. Follow instructions in [README.sentry](./README.sentry/README.sentry.md)
 
+### Deploying a branch to stage
+
+1. Click the "Actions" tab
+2. Select the "stage" workflow
+3. Open the dropdown for "Run workflow" and select the branch you wish to deploy
+4. Choose your deploy target (client, server, both)
+5. Click "Run workflow"
+
+The client app will deploy to the preview url, and the server will deploy to your staging worker.
+
 ## Scripts
 
 - `pnpm run dev`: Start the development server
