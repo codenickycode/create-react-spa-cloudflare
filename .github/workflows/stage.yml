@@ -46,7 +46,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.17.0
+          node-version: 22.9.0
 
       - name: 📥 Install deps
         run: pnpm install
@@ -79,7 +79,7 @@ jobs:
       - name: ⎔ Setup node
         uses: actions/setup-node@v4
         with:
-          node-version: 20.17.0
+          node-version: 22.9.0
 
       - name: 📥 Install deps
         run: pnpm install

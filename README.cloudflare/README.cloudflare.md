@@ -21,7 +21,7 @@
 6. Add the following variables under "Variables and Secrets" so that the build command can run in the correct environment:
    | Type | Name | Value |
    | --- | --- | --- |
-   | Plaintext | NODE_VERSION | 20.17.0 |
+   | Plaintext | NODE_VERSION | 22.9.0 |
    | Plaintext | PNPM_VERSION | 9 |
 
 7. Create a Workers app to host the prod server. From the Workers & Pages Overview page, click "Create" (like step 2), and then from the "Workers" tab, click "Create Worker".
