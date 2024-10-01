@@ -32,11 +32,15 @@ A starter project for building a pnpm monorepo with a client-side React SPA and 
    ```sh
    nvm use 22.9.0
    ```
-2. Run the installation script:
+2. If necessary, install the correct version of pnpm:
+   ```sh
+   npm i -g pnpm@9
+   ```
+3. Run the installation script:
    ```sh
    pnpm create react-spa-cloudflare@latest my-app
    ```
-3. Check the console output for any warnings. The command will succeed unless the initial download fails.
+4. Check the console output for any warnings. The command will succeed unless the initial download fails.
 
 ## Getting Started
 

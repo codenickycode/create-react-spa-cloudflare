@@ -33,7 +33,13 @@ This project is a pnpm monorepo with a client-side React SPA and a server-side C
    nvm use 22.9.0
    ```
 
-2. Install dependencies
+2. If necessary, install the correct version of pnpm:
+
+   ```sh
+   npm i -g pnpm@9
+   ```
+
+3. Install dependencies
 
    ```sh
    pnpm i
