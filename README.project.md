@@ -23,14 +23,14 @@ This project is a pnpm monorepo with a client-side React SPA and a server-side C
 ### Pre-requisites
 
 1. [pnpm](https://pnpm.io/installation) v9 and above
-2. [node](https://nodejs.org/en/download/package-manager/current) v20.17.0 and above
+2. [node](https://nodejs.org/en/download/package-manager/current) v22.9.0 and above
 
 ### Installation
 
 1. Ensure you're using the correct version of Node:
 
    ```sh
-   nvm use 20.17.0
+   nvm use 22.9.0
    ```
 
 2. Install dependencies

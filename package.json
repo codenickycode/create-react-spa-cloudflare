@@ -1,7 +1,7 @@
 {
   "name": "create-react-spa-cloudflare",
   "type": "module",
-  "version": "0.0.15",
+  "version": "0.0.17",
   "description": "Starter package for react spa with cloudflare pages, workers, and kv",
   "bin": "./bin/cli.js",
   "scripts": {
@@ -37,7 +37,7 @@
   "devDependencies": {
     "@playwright/test": "^1.47.0",
     "@types/eslint": "^9.6.0",
-    "@types/node": "^20.14.12",
+    "@types/node": "^22.7.4",
     "@typescript-eslint/eslint-plugin": "^7.14.1",
     "@typescript-eslint/parser": "^7.14.1",
     "eslint": "^8.57.0",
@@ -46,7 +46,7 @@
     "wrangler": "^3.73.0"
   },
   "engines": {
-    "node": ">=20.17.0",
+    "node": ">=22.9.0",
     "pnpm": ">=9"
   }
 }

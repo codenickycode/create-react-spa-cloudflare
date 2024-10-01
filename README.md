@@ -24,13 +24,13 @@ A starter project for building a pnpm monorepo with a client-side React SPA and 
 
 1. [git](https://git-scm.com/downloads)
 2. [pnpm](https://pnpm.io/installation) v9 and above
-3. [node](https://nodejs.org/en/download/package-manager/current) v20.17.0 and above
+3. [node](https://nodejs.org/en/download/package-manager/current) v22.9.0 and above
 
 ### Install
 
 1. Ensure you're using the correct version of Node:
    ```sh
-   nvm use 20.17.0
+   nvm use 22.9.0
    ```
 2. Run the installation script:
    ```sh
