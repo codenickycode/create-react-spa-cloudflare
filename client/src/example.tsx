@@ -3,32 +3,42 @@ import { Spinner } from './components/ui.spinner';
 import { Modal } from './components/ui.modal';
 import { useQuery } from '@tanstack/react-query';
 import { getServerUrl } from './config';
+import { hc } from 'hono/client';
+import type { ServerApi } from '../../server/src/types';
+import { useMonitor } from './services/monitor.use-monitor';
 
 const serverUrl = getServerUrl();
 
-export const Example = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const serverOkQuery = useQuery({
-    queryKey: ['example'],
+const { $get } = hc<ServerApi>(serverUrl)['index'];
+
+const useServerOkQuery = () => {
+  const { captureException } = useMonitor();
+  return useQuery({
+    queryKey: ['hello-from-server'],
     queryFn: async () => {
-      return fetch(serverUrl)
+      return $get()
         .then(async (res) => {
           if (!res.ok) {
             throw res;
           }
-          return res.text();
+          return res.json();
         })
         .catch((error) => {
-          console.error(error);
+          captureException(error);
           return null;
         });
     },
   });
+};
+
+export const Example = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const serverOkQuery = useServerOkQuery();
   return (
     <div className="flex flex-col gap-4">
       <h1>Hello from React!</h1>
       <div>
-        <p>Server connection: {serverOkQuery.data ? '✅' : '❌'}</p>
+        <p>Server connection: {serverOkQuery.isSuccess ? '✅' : '❌'}</p>
       </div>
       <div>
         <p>
