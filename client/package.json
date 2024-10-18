@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "tsc -b && vite build",
+    "build": "pnpm run build:server-types && tsc -b && vite build",
+    "build:server-types": "tsc -p ../server/tsconfig.shared.json --declaration --emitDeclarationOnly --outFile ./src/server-types.d.ts",
     "build:test": "tsc -b && E2E=true vite build",
     "deploy:stage": "pnpm wrangler pages deploy ./dist --project-name todo:rename --branch \"stage\" --commit-hash \"$GITHUB_SHA\" --commit-message \"stage deployment\"",
     "deploy:prod": "pnpm wrangler pages deploy ./dist --project-name todo:rename",

@@ -4,8 +4,8 @@ import { Modal } from './components/ui.modal';
 import { useQuery } from '@tanstack/react-query';
 import { getServerUrl } from './config';
 import { hc } from 'hono/client';
-import type { ServerApi } from '../../server/src/types';
 import { useMonitor } from './services/monitor.use-monitor';
+import type { ServerApi } from 'types.shared';
 
 const serverUrl = getServerUrl();
 

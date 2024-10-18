@@ -10,6 +10,7 @@ import { Example } from './example';
 
 // Mock only the react-query hook
 vi.mock('@tanstack/react-query', async (importOriginal) => {
+  // eslint-disable-next-line @typescript-eslint/consistent-type-imports
   const mod = await importOriginal<typeof import('@tanstack/react-query')>();
   return {
     ...mod,
