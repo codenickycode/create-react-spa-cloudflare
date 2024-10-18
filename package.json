@@ -1,7 +1,7 @@
 {
   "name": "create-react-spa-cloudflare",
   "type": "module",
-  "version": "0.0.19",
+  "version": "0.0.20",
   "description": "Starter package for react spa with cloudflare pages, workers, and kv",
   "bin": "./bin/cli.js",
   "scripts": {
