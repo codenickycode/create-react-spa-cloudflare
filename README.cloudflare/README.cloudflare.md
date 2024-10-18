@@ -69,8 +69,8 @@ binding = "DB"
 18. Update the deploy scripts in [client/package.json](../client/package.json) to use your project name. Note: Pages allows a "Preview" branch, for all branches besides main. We use the same app name but provide `--branch "stage"` for our staging branch:
 
 ```diff
--    "deploy:stage": "pnpm wrangler pages deploy ./dist --project-name todo:rename --branch \"stage\"...,
+-    "deploy:stage": "pnpm wrangler pages deploy ./dist --project-name todo-rename --branch \"stage\"...,
 +    "deploy:stage": "pnpm wrangler pages deploy ./dist --project-name my-app --branch \"stage\"...,
--    "deploy:prod": "pnpm wrangler pages deploy ./dist --project-name todo:rename",
+-    "deploy:prod": "pnpm wrangler pages deploy ./dist --project-name todo-rename",
 +    "deploy:prod": "pnpm wrangler pages deploy ./dist --project-name my-app",
 ```
