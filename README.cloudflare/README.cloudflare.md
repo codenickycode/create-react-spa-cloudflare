@@ -57,7 +57,7 @@ workers_dev = true
 + vars = { ALLOWED_HOST = "my-app-stage.pages.dev", ENV = "stage" }
 [[env.stage.kv_namespaces]]
 binding = "DB"
-- id = "todo:stage-db-id"
+- id = "e0c5eee53ed34ff69c4d8303f818adca"
 + id = "fThh47jB971c4GP452h75cP7jqE499mL"
 ```
 
