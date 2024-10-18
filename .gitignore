@@ -8,3 +8,4 @@ repo.txt
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+*.tsbuildinfo
