@@ -13,11 +13,6 @@
 5. Each time you add an app, you will see it appear in your "Workers & Pages" Overview:
    ![](./img/4%20-%20dashboard.jpg)
 
-6. Go into your new app, click the "Settings" tab, and edit the "Build configuration" to match the following:
-
-- Build command: `pnpm run client build`
-- Build output: `client/dist`
-
 6. Add the following variables under "Variables and Secrets" so that the build command can run in the correct environment:
    | Type | Name | Value |
    | --- | --- | --- |
@@ -55,7 +50,7 @@
 
 ```diff
 [env.stage]
-- name = "todo:rename-stage"
+- name = "todo-rename-stage"
 + name = "my-app-stage"
 workers_dev = true
 - vars = { ALLOWED_HOST = "todo:rename to stage host", ENV = "stage" }

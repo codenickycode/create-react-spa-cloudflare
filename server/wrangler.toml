@@ -16,7 +16,7 @@ binding = "TEST_DB"
 id = "test-db"
 
 [env.stage]
-name = "todo:rename-stage"
+name = "todo-rename-stage"
 workers_dev = true
 vars = { ALLOWED_HOST = "todo:rename to stage host", ENV = "stage" }
 [[env.stage.kv_namespaces]]
@@ -24,7 +24,7 @@ binding = "DB"
 id = "todo:stage-db-id"
 
 [env.prod]
-name = "todo:rename-prod"
+name = "todo-rename-prod"
 workers_dev = true
 vars = { ALLOWED_HOST = "todo:rename to prod host", ENV = "prod" }
 [[env.prod.kv_namespaces]]
