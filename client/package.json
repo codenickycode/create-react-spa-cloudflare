@@ -16,7 +16,7 @@
     "typecheck": "pnpm exec tsc --build"
   },
   "dependencies": {
-    "@sentry/react": "^8.25.0",
+    "@sentry/react": "^9.16.1",
     "@sentry/vite-plugin": "^3.4.0",
     "@tanstack/react-query": "^5.75.5",
     "classnames": "^2.5.1",
