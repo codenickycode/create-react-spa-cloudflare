@@ -1,4 +1,5 @@
 packages:
   - 'client'
+  - 'e2e'
   - 'server'
 shared-workspace-lockfile: true
