@@ -52,16 +52,18 @@ export const Modal = ({
   return (
     <div
       className={classNames(
-        'fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-50',
-        isOpen ? 'animate-fadeIn' : 'animate-fadeOut',
+        'fixed inset-0 bg-black/70 flex justify-center items-center',
+        isOpen ? 'animate-(--animate-fade-in)' : 'animate-(--animate-fade-out)',
       )}
       onClick={onClose}
       onAnimationEnd={handleAnimationEnd}
     >
       <div
         className={classNames(
-          'rounded-lg p-6 m-4',
-          isOpen ? 'animate-scaleIn' : 'animate-scaleOut',
+          'relative rounded-lg p-6 m-4',
+          isOpen
+            ? 'animate-(--animate-scale-in)'
+            : 'animate-(--animate-scale-out)',
           className ?? '',
         )}
         onClick={(e) => e.stopPropagation()}
