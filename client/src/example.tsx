@@ -21,11 +21,11 @@ const useServerOkQuery = () => {
           if (!res.ok) {
             throw res;
           }
-          return res.json();
+          return res.text();
         })
         .catch((error) => {
           captureException(error);
-          return null;
+          throw error;
         });
     },
   });
