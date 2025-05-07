@@ -1,11 +1,10 @@
-export const ENV =
-  window.location.hostname === 'todo: change to prod domain'
+export const ENV = window.location.hostname.includes('stage.')
+  ? 'stage'
+  : window.location.hostname === 'todo: change to prod domain'
     ? 'prod'
-    : window.location.hostname.includes('todo: change to non prod matcher')
-      ? 'stage'
-      : window.location.port === '4173'
-        ? 'test'
-        : 'dev';
+    : window.location.port === '4173'
+      ? 'test'
+      : 'dev';
 
 export const getServerUrl = () => {
   switch (ENV) {
