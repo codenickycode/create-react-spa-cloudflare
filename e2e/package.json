@@ -3,6 +3,7 @@
   "type": "module",
   "version": "0.0.0",
   "scripts": {
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "typecheck": "pnpm exec tsc --build"
   }
 }
