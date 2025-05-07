@@ -55,7 +55,7 @@ importers:
         specifier: ^3.4.0
         version: 3.4.0
       '@tanstack/react-query':
-        specifier: ^5.50.1
+        specifier: ^5.75.5
         version: 5.75.5(react@19.1.0)
       classnames:
         specifier: ^2.5.1
