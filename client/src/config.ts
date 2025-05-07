@@ -1,6 +1,6 @@
 export const ENV = window.location.hostname.includes('stage.')
   ? 'stage'
-  : window.location.hostname === 'todo: change to prod domain'
+  : window.location.hostname.includes('todo: change to prod domain')
     ? 'prod'
     : window.location.port === '4173'
       ? 'test'
