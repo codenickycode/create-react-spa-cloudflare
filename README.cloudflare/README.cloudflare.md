@@ -1,12 +1,12 @@
 1. [Sign up for Cloudflare](https://www.cloudflare.com/) (they have a free tier)
 
-2. Create a Pages app to host the React client. From the Workers & Pages screen, choose "Create".
+2. Create a Pages app to host the React client. From the Compute - Workers & Pages screen, choose "Create".
    ![](./img/1%20-%20create%20pages.jpg)
 
-3. Select the "Pages" tab and click "Upload assets" from the "Create using direct upload" section.
+3. Select the "Pages" tab and click "Get started" in the "Use direct upload" section.
    ![](./img/2%20-%20direct%20upload.jpg)
 
-4. Name your app and click "Create". Note: You do not need to upload any assets and click "Deploy". The Wrangler CLI and GitHub actions will take care of that later.
+4. Name your app and click "Create". Note: You do not need to upload any assets and click "Deploy". The Wrangler CLI and GitHub actions will take care of that later. After creating, skip step 2 and go back to the overview screen.
 
    ![](./img/3a%20-%20name%20project.jpg)
 
@@ -19,21 +19,23 @@
    | Plaintext | NODE_VERSION | 22.9.0 |
    | Plaintext | PNPM_VERSION | 9 |
 
-7. Create a Workers app to host the prod server. From the Workers & Pages Overview page, click "Create" (like step 2), and then from the "Workers" tab, click "Create Worker".
+   ![](./img/settings%20add%20variables.jpg)
+
+7. Create a Workers app to host the prod server. From the Workers & Pages Overview page, click "Create" (like step 2), and then from the "Workers" tab, click "Get started" in the section "Start with Hello World!".
    ![](./img/7%20-%20create%20worker.jpg)
 
 8. Name your worker and click "Deploy". Note: Ignore the `worker.js` code, as it will be overwritten by our app when we run our deploy script.
    ![](./img/8%20-%20name%20worker%20and%20deploy.jpg)
 
-9. Add a KV namespace for your prod server storage. Navigate to Workers & Pages - KV, and click "Create a namespace".
+9. Add a KV namespace for your prod server storage. Navigate to Storage & Databases - KV, and click "Create".
    ![](./img/9%20-%20create%20namespace.jpg)
 
-10. Enter a name for your prod server kv namespace, and click "Add".
+10. Enter a name for your prod server kv namespace, and click "Create".
     ![](./img/10%20-%20add%20namespace.jpg)
 
 11. Repeat steps 7-10 for your stage server and kv storage. Note: It might be useful to use suffix `-stage` in your naming.
 
-12. On the right hand side of the Workers & Pages Overview screen, you can find your Account ID, as well as a link to "Manage API tokens":
+12. On the right hand side of the Compute - Workers & Pages Overview screen, you can find your Account ID, as well as a link to "Manage API tokens":
     ![](./img/11%20-%20account%20id.jpg)
 
 13. Create an API token for "Edit Cloudflare Workers", using the provided template.
