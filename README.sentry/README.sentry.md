@@ -27,6 +27,6 @@
 
 ![6 generate token](./img/6%20generate%20token.jpg)
 
-9. Add your `SENTRY_AUTH_TOKEN` in [client/.env](../client/.env)
+9. Add your `SENTRY_AUTH_TOKEN` in [client/.env](../client/.env) and in your GitHub Actions Secrets (in your GitHub repo's settings tab.)
 
 10. Add your `org` and `project` values to Sentry Vite plugin in [client/vite.config.ts](../client/vite.config.ts)
