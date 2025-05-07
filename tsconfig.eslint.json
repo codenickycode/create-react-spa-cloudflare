@@ -1,4 +1,4 @@
 {
   "extends": "./tsconfig.json",
-  "include": [".eslintrc.cjs", "playwright.config.ts", "bin"]
+  "include": ["eslint.config.js", "playwright.config.ts", "bin"]
 }
