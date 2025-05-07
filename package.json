@@ -1,8 +1,8 @@
 {
   "name": "create-react-spa-cloudflare",
   "type": "module",
-  "version": "0.0.21",
-  "description": "Starter package for react spa with cloudflare pages, workers, and kv",
+  "version": "0.0.22",
+  "description": "Starter package for a React SPA with Cloudflare Pages, Workers, and KV",
   "bin": "./bin/cli.js",
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -15,7 +15,6 @@
     "e2e:ui": "pnpm exec playwright test --ui",
     "format": "pnpm exec prettier --write **/*.{js,ts,tsx,json,css,md}",
     "lint": "pnpm -r lint",
-    "lint:fix": "pnpm exec eslint --fix",
     "test": "pnpm -r test",
     "test:watch": "pnpm -r test:watch",
     "typecheck": "pnpm -r typecheck"
@@ -32,18 +31,20 @@
     "url": "https://github.com/codenickycode/create-react-spa-cloudflare.git"
   },
   "dependencies": {
-    "hono": "^4.5.8"
+    "hono": "^4.7.8"
   },
   "devDependencies": {
-    "@playwright/test": "^1.47.0",
-    "@types/eslint": "^9.6.0",
+    "@eslint/js": "^9.26.0",
+    "@playwright/test": "^1.52.0",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^22.7.4",
-    "@typescript-eslint/eslint-plugin": "^7.14.1",
-    "@typescript-eslint/parser": "^7.14.1",
-    "eslint": "^8.57.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.5.3",
-    "wrangler": "^3.73.0"
+    "@typescript-eslint/parser": "^8.32.0",
+    "eslint": "^9.26.0",
+    "globals": "^16.1.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.32.0",
+    "wrangler": "^4.14.3"
   },
   "engines": {
     "node": ">=22.9.0",

@@ -1,0 +1,9 @@
+{
+  "name": "@create-react-spa-cloudflare/e2e",
+  "type": "module",
+  "version": "0.0.0",
+  "scripts": {
+    "lint": "eslint .",
+    "typecheck": "pnpm exec tsc --build"
+  }
+}
